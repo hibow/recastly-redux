@@ -30,7 +30,7 @@ export var mockReducer = sinon.spy(function(state = {lastAction: ''}, action) {
 export var mockYouTubeApi = function (callback) {
   var called = {count: 0};
   $(document).ajaxSend(function( event, request, settings ) {
-    settings.url = 'http://127.0.0.1:8081/spec/data/exampleVideoData.json'; //firewall issue?
+    settings.url = 'http://127.0.0.1:8081/spec/data/exampleVideoData.json'; //firewall issue? issue: can't connect
     called.count++;
   });
   return called;

@@ -11,7 +11,7 @@ var handleVideoSearch = function(q) {
   };
   //not sure what dispatch means for middleware
   return function(dispatch) {
-    searchYouTube(options, (videos) => {
+    return searchYouTube(options, (videos) => {
       dispatch(changeVideoList(videos));
       dispatch(changeVideo(videos[0]));
     });
