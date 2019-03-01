@@ -7,15 +7,10 @@ const mapStateToProps = (state, ownProps) => {
     video: state.currentVideo
   };
 };
-const mapDispatchToProps = (dispatch, ownpProps) => {
-  return {
-    //handleVideoListEntryTitleClick: (video) => dispatch(changeVideo(video))
-  };
-};
+
 
 var VideoPlayerContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 )(VideoPlayer);
 
 //var VideoPlayerContainer = () => {};

@@ -7,11 +7,12 @@ import Thunk from 'redux-thunk';
 var handleVideoSearch = function(q) {
   var options = {
     key: YOUTUBE_API_KEY,
-    query: q
+    query: q,
+    max: 5
   };
   //not sure what dispatch means for middleware
-  return function(dispatch) {
-    return searchYouTube(options, (videos) => {
+  return (dispatch) => {
+    searchYouTube(options, (videos) => {
       dispatch(changeVideoList(videos));
       dispatch(changeVideo(videos[0]));
     });

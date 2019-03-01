@@ -3,11 +3,7 @@ import Search from './../components/Search.js';
 import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
 
-const mapStateToProps = (state, ownProps) => {
-  return {
 
-  };
-};
 const mapDispatchToProps = (dispatch, ownpProps) => {
   return {
     handleSearchInputChange: (query) => dispatch(handleSearchChange(query))
@@ -15,7 +11,7 @@ const mapDispatchToProps = (dispatch, ownpProps) => {
 };
 
 var SearchContainer = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Search);
 //var SearchContainer = () => {};
