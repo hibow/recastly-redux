@@ -14,5 +14,5 @@ ReactDOM.render(
     <App API_KEY={YOUTUBE_API_KEY} searchYouTube={searchYouTube}/>
   </Provider>, document.getElementById('app')
 //  <App API_KEY={YOUTUBE_API_KEY} searchYouTube={searchYouTube} />,
-//
+// question: can't find store in redux dev tool
 );
