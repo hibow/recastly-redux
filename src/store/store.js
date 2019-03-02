@@ -13,7 +13,7 @@ import rootReducer from './../reducers/main.js';
 // }
 
 const store = createStore(rootReducer, {currentVideo: null, videoList: []}, applyMiddleware(thunk))
-
+console.log(store);
 export default store
 
 //Pass the root reducer into createStore to define the store object which contains a Redux state.
