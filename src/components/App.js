@@ -9,6 +9,7 @@ import changeVideo from '../actions/currentVideo.js';
 import changeVideoList from '../actions/videoList.js';
 import exampleVideoData from '../data/exampleVideoData.js';
 import store from '../store/store.js';
+import YOUTUBE_API_KEY from '../config/youtube.js'
 
 export default class App extends React.Component {
   constructor(props) {
@@ -21,9 +22,10 @@ export default class App extends React.Component {
   }
 
   componentDidMount() {
+    //this.getYouTubeVideos('react tutorials');
     store.dispatch(changeVideoList(exampleVideoData));
     store.dispatch(changeVideo(exampleVideoData[0]));
-    //this.getYouTubeVideos('react tutorials');
+
   }
 
   handleVideoListEntryTitleClick(video) {
