@@ -4,6 +4,7 @@ import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 import Thunk from 'redux-thunk';
 
+
 var handleVideoSearch = function(q) {
   var options = {
     key: YOUTUBE_API_KEY,
@@ -17,7 +18,6 @@ var handleVideoSearch = function(q) {
       dispatch(changeVideo(videos[0]));
     });
   };
-  //TODO:  Write an asynchronous action to handle a video search!
-};
+
 
 export default handleVideoSearch;

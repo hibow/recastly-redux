@@ -12,9 +12,7 @@ const enhancer = composeEnhancers(
   applyMiddleware(thunk)
   // other store enhancers if any
 );
-//const store = createStore(rootReducer, enhancer);
-// TODO:  Create your redux store, apply thunk as a middleware, and export it!
+
 const store = createStore(rootReducer, {currentVideo: null, videoList: []}, applyMiddleware(thunk));
-//currentVideo: null, videoList: []
 
 export default store;

@@ -1,29 +1,28 @@
 import Redux from 'redux';
 
-//var initialState = {currentVideo: null, videoList: []};
+var currentVideoReducer = (state = null, action) => {
 
-// var currentVideoReducer = (state = initialState, action) => {
-//   //TODO: define a reducer for the currentVideo field of our state.
-//   if (action.type === 'CHANGE_VIDEO') {
-//     var newState = object.assign({}, state);
-//     newState.currentVideo = action.video;
-//     return newState;
-//   } else {
-//     // if (action.video) {
-//     //   return action.video;
-//     // } else {
-//     //   return state;
-//     // }
-//     return state;
-//   }
-// };
-const currentVideoReducer = (state = null, action) => {
-  //TODO: define a reducer for the currentVideo field of our state.
-  if (action.type === 'CHANGE_VIDEO') {
-    return action.video || null;
-  } else {
-    return state;
+  switch (action.type) {
+    case "CHANGE_VIDEO":
+      // let newState = Object.assign({}, state)
+      // newState.video = action.video
+      if (action.video){
+        return action.video;
+      } else {
+        return state;
+      }
+      // return {
+      //   ...state,
+      //   script : action.video
+      // }
+    default:
+      return state;
   }
 };
+
+// currentVideoReducer({},{
+//   type: 'CHANGE_VIDEO',
+//   video: {video: 'movie'},
+//  })
 
 export default currentVideoReducer;

@@ -13,4 +13,12 @@ var rootReducer = combineReducers({
 //  app into a single reducer using the 'combineReducers' method
 //  listed above.
 
+/**
+ * export default combineReducers({
+    items,
+    itemsHasErrored,
+    itemsIsLoading
+});
+ */
+
 export default rootReducer;
