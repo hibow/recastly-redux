@@ -1,21 +1,18 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import rootReducer from './../reducers/main.js';
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) : compose;
 
-// TODO:  Create your redux store, apply thunk as a middleware, and export it!
+const enhancer = composeEnhancers(
+  applyMiddleware(thunk)
+  // other store enhancers if any
+);
 
-// export default function newStore(initialState) {
-//   return createStore(
-//     rootReducer,
-//     initialState,
-//     applyMiddleware(thunk)
-//   )
-// }
+const store = createStore(rootReducer, {currentVideo: null, videoList: []}, applyMiddleware(thunk));
 
-const store = createStore(rootReducer, {currentVideo: null, videoList: []}, applyMiddleware(thunk))
-console.log(store);
-export default store
-
-//Pass the root reducer into createStore to define the store object which contains a Redux state.
-//const store = createStore(rootReducer,initialState,applyMiddleware(thunk));
-//{currentVideo: , videoList:}
+export default store;

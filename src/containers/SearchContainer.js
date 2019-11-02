@@ -2,15 +2,20 @@ import React from 'react';
 import Search from './../components/Search.js';
 import { connect } from 'react-redux';
 import handleSearchChange from '../actions/search.js';
-// import { url } from 'inspector';
-// var SearchContainer = (dispatch) => {
 
-// };
-var mapDispatchToProps = (dispatch) => {
+
+
+const mapDispatchToProps = (dispatch, ownpProps) => {
   return {
     handleSearchInputChange: (query) => dispatch(handleSearchChange(query))
-  }
+  };
 };
+
+var SearchContainer = connect(
+  null,
+  mapDispatchToProps
+)(Search);
+
 
 //action dispatcher - handleSearchChange (its name is different from search.js of actions)
 //handleSearchInputChange  - it is the props we need to pass to search component
@@ -22,6 +27,5 @@ var mapDispatchToProps = (dispatch) => {
 
 //HINT: use react-redux 'connect' method to generate a container component from
 //state and dispatch mappings.
-var SearchContainer = connect(null, mapDispatchToProps)(Search);
+
 export default SearchContainer;
-//const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search)

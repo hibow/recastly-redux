@@ -1,25 +1,21 @@
 import { connect } from 'react-redux';
 import VideoPlayer from '../components/VideoPlayer.js';
 
-//var VideoPlayerContainer = () => {};
-var mapStateToProps = (state) => {
+
+const mapStateToProps = (state, ownProps) => {
+
   return {
     video: state.currentVideo
-  }
+  };
 };
 
-/**
- * const mapStateToProps = (state) => {
-    return {
-        items: state.items,
-        hasErrored: state.itemsHasErrored,
-        isLoading: state.itemsIsLoading
-    };
-};
- */
+
+var VideoPlayerContainer = connect(
+  mapStateToProps
+)(VideoPlayer);
+
 
 //TODO: define a VideoPlayerContainer component which will hook up your action
 //dispatchers with your VideoPlayer component props.
-var VideoPlayerContainer = connect(mapStateToProps, null)(VideoPlayer);
-console.log(connect(mapStateToProps, null)(VideoPlayer))
+
 export default VideoPlayerContainer;

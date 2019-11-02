@@ -7,6 +7,7 @@ var videoListReducer = (state = [], action) => {
   } else {
     return state;
   }
+
 };
 
 export default videoListReducer;

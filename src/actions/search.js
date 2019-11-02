@@ -2,34 +2,22 @@ import searchYouTube from '../lib/searchYouTube.js';
 import changeVideoList from './videoList.js';
 import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
+import Thunk from 'redux-thunk';
 
 
-var handleVideoSearch = (q) => {
-  //TODO:  Write an asynchronous action to handle a video search!
-  console.log(q);
-  let youtubeObj = {
- //   part: 'snippet',
+var handleVideoSearch = function(q) {
+  var options = {
     key: YOUTUBE_API_KEY,
     query: q,
-    //max: 5,
-//    type: 'video',
-//    videoEmbeddable: 'true'
-  }
+    max: 5
+  };
+  //not sure what dispatch means for middleware
   return (dispatch) => {
-    searchYouTube( youtubeObj, (videos) => {
-      // console.log(YOUTUBE_API_KEY);
-      dispatch(changeVideoList(videos))
-      dispatch(changeVideo(videos[0]))
+    searchYouTube(options, (videos) => {
+      dispatch(changeVideoList(videos));
+      dispatch(changeVideo(videos[0]));
     });
-  }
-};
+  };
+
 
 export default handleVideoSearch;
-
-/**
- * 'should return a function'
- * 'should take a query parameter'
- * 'should make a call to the youtube API'
- * 'should dispatch changeVideo'
- * 'should dispatch changeVideoList'
- */
