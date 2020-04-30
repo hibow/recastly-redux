@@ -16,7 +16,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "enzyme-redux": "^0.1.7",
     "i": "^0.3.6",
-    "jquery": "^2.2.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.6.1",
     "package.json": "^2.0.1",
     "popper.js": "^1.12.9",
